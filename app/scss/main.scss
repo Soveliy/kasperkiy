@@ -11,6 +11,23 @@ body{
     font-size: 16.648px;
     line-height: 20px;
     color: $main-color;
+    @include for-sm(){
+        font-size: 12px;
+        line-height: 14px;
+    }
+}
+.wrapper{
+    position: relative;
+    overflow: hidden;
+}
+.dotted-line{
+    position: absolute;
+    width: 2px;
+    box-sizing: border-box;
+    border: 2px dashed #fff;
+    @include for-lg(){
+        display: none;
+    }
 }
 .button{
     text-decoration: none;
@@ -27,6 +44,12 @@ box-sizing: border-box;
     svg{
         margin-left: 9px;
         margin-top: 3px;
+        transition: .3s;
+    }
+    &:hover{
+        svg{
+            transform: translateX(5px);
+        }
     }
     &--white{
         color:$main-color;
@@ -34,6 +57,14 @@ box-sizing: border-box;
         max-width: 121px;
         svg path{
             fill: $main-color;
+        }
+        @include for-md(){
+            background: linear-gradient(265.93deg, #22D594 22.7%, #22FDE3 77.82%);
+            padding-right: 10px;
+            padding-left: 10px;
+            svg path{
+                fill: $main-color;
+            }
         }
     }
     &--green{
@@ -51,19 +82,62 @@ line-height: 24px;
     max-width: 1230px;
     width: 96%;
     margin: 0 auto;
+    @include for-md(){
+        width: 100%;
+    }
 }
 .header{
     padding: 54px 0 0 90px;
     box-sizing: border-box;
+    position: relative;
+    z-index: 20;
+    @include for-md(){
+        padding: 21px 0 0 32px;
+
+        img{
+            max-height: 22px;
+
+        }
+    }
 }
 .hero{
     position: relative;
+    // @include for-desk(){
+    //     background: #fff;
+    // }
     background: url(../images/hero.jpg) center top;
     background-size: cover;
+    @include for-sm(){
+        background: none;
+    }
+    &__dotted-line{
+        height: 660px;
+        margin-left: 30px;
 
+        @include for-big(){
+            margin-left: 20px;
+        }
+    
+    }
     &__content{
         color: $other-color;
         padding: 199px 0 134px;
+        @include for-lg(){
+            padding: 112px 0 20px;
+            position: relative;
+        }
+        @include for-sm(){
+            &:before{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: -46px;
+                height: calc(100% + 46px);
+                background: url(../images/hero_mob.jpg) center top no-repeat;
+                background-size: cover;
+                width: 100%;
+            }
+        }
     }
     &__title{
         font-size: 83.0079px;
@@ -71,16 +145,28 @@ line-height: 24px;
         font-weight: 400;
         text-align: center;
         margin: 0;
+        @include for-md(){
+            font-size: 36.9637px;
+            line-height: 49px;
+            position: relative;
+        }
     }
     &__row{
         display: flex;
         padding-top: 7px;
         position: relative;
         z-index: 50;
+        @include for-sm(){
+            max-width: 370px;
+            margin: 0 auto;
+        }
     }
     &__icon{
         display: block;
         margin: 94px 0 17px 13px;
+        @include for-sm(){
+            display: none;
+        }
     }
     &__centered-text{
         font-size: 20.6076px;
@@ -90,53 +176,130 @@ line-height: 24px;
         -webkit-text-fill-color: transparent;
         margin-top: 23px;
     display: block;
+    
 
     margin: 23px 0 0 -65px;
+    
+    @include for-sm(){
+        order: -1;
+        margin: 0;
+        font-size: 10px;
+        line-height: 12px;
+        margin: -11px 0 0 15px;
+    }
     }
     &__text{
         max-width: 419px;
         p{
             font-size: 18.729px;
             line-height: 22px;
+            @include for-sm(){
+                font-size: 10px;
+                line-height: 12px;
+                margin-left: -12px;
+                padding-right: 25px;
+                box-sizing: border-box;
+            }
+        }
+        @include for-md(){
+            display: flex;
+            flex-direction: column;
+           
         }
     }
     &__images-container{
         margin-right: 17px;
         margin-left: 60px;
         width: 515px;
+        @include for-lg(){
+            width: 362px;
+        }
         img{
             position: absolute;
+            @include for-lg(){
+                left: -80px;
+            }
+            @include for-sm(){
+                width: 100%;
+                margin-top: -10px;
+                margin-left: -24px;
+                left: inherit;
+            }
+        }
+        @include for-sm(){
+            position: relative;
+            width: 190px;
+            margin-left: 0;
+            margin-right: 0;
+            flex-shrink: 0;
+           
         }
     }
     &__button{
         margin-left: -24px;
+        @include for-big(){
+            margin-left: -35px;
+        }
+        @include for-sm(){
+            margin: 13px 0 0 -69px;
+            position: relative;
+            z-index: 20;
+        }
     }
     &__aside{
         position: absolute;
         width: 686px;
-    height: 668px;
-        background: url(../images/hero_aside.png);
+        height: 668px;
+        
+        @include for-desk(){
+            background: url(../images/hero_aside.png) center center no-repeat;
+
+            background-size: contain;
+        }
+        @include for-lg(){
+            width: 500px;
+            height: 500px;
+            padding: 10px;
+        }
         right: -106px;
-    bottom: -340px;
+        bottom: -340px;
         display: flex;
         align-items: center;
         padding: 67px 113px 0;
         box-sizing: border-box;
         z-index: 40;
+        @include for-md(){
+            position: static;
+            width: 100%;
+            height: auto;
+            background: #fff !important;
+            padding: 30px 0;
+        }
         p{
             max-width: 309px;
+            @include for-lg(){
+                align-items: center;
+                padding: 0;
+                max-width: 61%;
+                text-align: center;
+                margin: 0 auto;
+            }
         }
     }
     &__vector{
         position: absolute;
-        width: 711px;
+        width: 850px;
         height: 840px;
         z-index: 1;
-        background: url(../images/vector1.png) center center;
+        background: url(../images/vector1.png) center left;
+        right: -262px;
+        top: 509px;
         background-size: contain;
-        right: -139px;
-    top: 509px;
+        @include for-md(){
+            display: none;
+        }
     }
+    
 }
 
 
@@ -152,7 +315,12 @@ line-height: 24px;
             font-size: 18.729px;
             line-height: 22px;
             color: $other-color;
+            @include for-sm(){
+                font-size: 12px;
+                line-height: 14px;
+            }
         }
+       
     }
 }
 
@@ -166,16 +334,63 @@ line-height: 24px;
     box-sizing: border-box;
     position: relative;
     z-index: 30;
+    &__dotted-line{
+        height: 340px;
+    top: -176px;
+    margin-left: 18px;
+    }
+    @include for-lg(){
+        align-items: center;
+        padding: 0;
+    }
+    @include for-md(){
+        background: none;
+        padding: 0;
+        min-height: auto;
+        flex-direction: column;
+    }
+    @include for-sm(){
+        background: none;
+    }
+   
     &__block{
         max-width: 340px;
         margin-left: 57px;
+
+        @include for-md(){
+            min-height: 276px;
+            display: flex;
+            margin: 0;
+            padding: 0 0 15px 0;
+            box-sizing: border-box;
+            align-items: center;
+            flex-direction: column;
+            justify-content: flex-end;
+            background: url(../images/second-section.jpg) no-repeat center center;
+            width: 100%;
+            max-width: 100%;
+            p{
+                max-width: 61%;
+                text-align: center;
+            }
+
+        }
+        @include for-sm(){
+            background: url(../images/section-two-mob.jpg) no-repeat center center;
+            background-size: cover;
+        }
     }
     &__button{
         margin-top: 34px;
         margin-left: 93px;
+        @include for-md(){
+            margin: 13px auto 0;
+        }
     }
     &__aside{
+        @include for-desk(){
         background: url(../images/second-section_aside.png) center center no-repeat;
+        }
     width: 690px;
     height: 815px;
     position: absolute;
@@ -196,23 +411,40 @@ line-height: 24px;
     z-index: 50;
     top: -400px;
     padding: 21px 0 0 33px;
+    @include for-md(){
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 29px 0 21px;
+        text-align: center;
+     }
 
         p{
             max-width: 339px;
             font-size: 16.648px;
 line-height: 134.5%;
+
+@include for-sm(){
+    font-size: 12px;
+    line-height: 14px;
+    max-width: 61%;
+}
 /* or 22px */
         }
     }
     &__vector{
         position: absolute;
-        width: 690px;
+        width: 800px;
         height: 815px;
         z-index: 1;
         background: url(../images/vector2.png) center center;
-        background-size: contain;
-        left: -105px;
+        left: -200px;
         top: 444px;
+        background-position: center right;
+        background-size: contain;
+        @include for-md(){
+            display: none;
+        }
     }
   
 }
@@ -224,13 +456,53 @@ line-height: 134.5%;
     min-height: 829px;
     box-sizing: border-box;
     padding-top: 180px;
+    &__dotted-line{
+        top: -490px;
+        height: 670px;
+        margin-left: 19px;
+    
+    }
+    @include for-lg(){
+        align-items: center;
+        padding: 0;
+    }
+    @include for-md(){
+        flex-direction: column;
+        min-height: inherit;
+        background: none;
+        padding: 0;
+     }
+ 
     &__block{
         max-width: 415px;
         margin-left: 66px;
+        @include for-md(){
+            background: url(../images/third-section.jpg) no-repeat center center;
+            max-width: 100%;
+            margin: 0;
+            padding: 45px 0 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: space-between;
+            min-height: 282px;
+            box-sizing: border-box;
+            
+            p{
+                max-width: 61%;
+            }
+        }
+        @include for-sm(){
+            background: url(../images/section-three-mib.jpg) no-repeat center center;
+            background-size: cover;
+        }
     }
     &__aside{
         position: absolute;
+        @include for-desk(){
         background: url(../images/third-section_aside.png);
+        }
         height: 604px;
         width: 630px;
         // bottom: -261px;
@@ -250,21 +522,41 @@ line-height: 134.5%;
         //     background: url(../images/third-section_aside-before.png) center center no-repeat;
         //     z-index: -1;
         // }
-
+        
+        @include for-md(){
+            position: static;
+            width: 100%;
+            height: auto;
+            background-color: #fff;
+            padding: 30px 0 17px;
+         }
         p{
             max-width: 326px;
+            @include for-md(){
+                max-width: 61%;
+                text-align: center;
+            }
         }
     }
     &__vector{
         height: 817px;
-            width: 664px;
-            background: url(../images/third-section_aside-before.png) center center no-repeat;
-            position: absolute;
-            right: -107px;
-            bottom: -335px;
+    width: 800px;
+    background: url(../images/vector3.png) center center no-repeat;
+    position: absolute;
+    right: -107px;
+    bottom: -335px;
+    right: -200px;
+    background-size: contain;
+    background-position: center left;
+            @include for-md(){
+                display: none;
+            }
     }
     &__button{
         margin: 31px 0 0 130px;
+        @include for-md(){
+            margin: 30px auto 0;
+        }
     }
 }
 
@@ -278,11 +570,53 @@ line-height: 134.5%;
     padding-top: 180px;
     display: flex;
     justify-content: center;
+    &__dotted-line{
+        // top: 0;
+        height: 451px;
+        /* margin-left: 19px; */
+        margin: 0 auto;
+        left: 50%;
+        margin-left: 7px;
+        margin-top: 30px;
+    }
+    @include for-md(){
+        background: none;
+    }
 
+    @include for-lg(){
+        align-items: center;
+        padding: 0;
+    }
+    @include for-md(){
+        flex-direction: column;
+        min-height: inherit;
+     }
     &__block{
         max-width: 503px;
         text-align: center;
         margin-left: 22px;
+        @include for-md(){
+            max-width: 100%;
+            margin: 0;
+            display: flex;
+            background: url(../images/four-section.jpg) center center no-repeat;
+            min-height: 246px;
+            flex-direction: column-reverse;
+            align-items: center;
+            text-align: center;
+            padding: 18px 0 2px;
+            box-sizing: border-box;
+            justify-content: space-between;
+
+            p{
+                max-width: 61%;
+            }
+        }
+
+        @include for-sm(){
+            background: url(../images/sction-four-mob.jpg) no-repeat center center;
+            background-size: cover;
+        }
     }
     &__button{
         margin: 0 auto 22px auto;
@@ -291,7 +625,9 @@ line-height: 134.5%;
         position: absolute;
         width: 536px;
         height: 505px;
+        @include for-desk(){
         background: url(../images/aside_four.png) no-repeat center center;
+        }
         left: -121px;
     bottom: -241px;
     display: flex;
@@ -299,18 +635,35 @@ line-height: 134.5%;
 
     justify-content: center;
     padding: 0 0 9px 84px;
+
+    @include for-md(){
+        position: static;
+        width: 100%;
+        height: auto;
+        background-color: #fff;
+        padding: 24px 0;
+     }
         p{
             max-width: 244px;
+            @include for-md(){
+                max-width: 61%;
+            }
         }
     }
     &__vector{
         position: absolute;
-        width: 658px;
+        width: 800px;
         height: 853px;
         background: url(../images/vector4.png);
 
         top: -486px;
         left: -107px;
+        background-position: center right;
+        left: -270px;
+        background-size: contain;
+        @include for-md(){
+            display: none;
+        }
     }
 }
 .section-five{
@@ -321,19 +674,66 @@ line-height: 134.5%;
     padding-top: 63px;
     display: flex;
     justify-content: center;
+    &__dotted-line{
+        top: -640px;
+        height: 760px;
+        margin: 0 auto;
+        left: 50%;
+        margin-left: 7px;
+        margin-top: 30px;
+    }
+    @include for-lg(){
+        align-items: center;
+        padding: 0;
+    }
+    @include for-md(){
+        flex-direction: column;
+        min-height: inherit;
+        background: none;
+     }
 
     &__block{
         max-width: 368px;
         margin-left: 40px;
+        p{
+            color: $main-color;
+        }
+        @include for-md(){
+            max-width: 100%;
+            margin-left: 0;
+            background: url(../images/section-five.jpg) center center no-repeat;
+            padding: 33px 0 25px;
+            min-height: 270px;
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            p{
+                max-width: 61%;
+                
+            
+            }
+        }
+
+        @include for-sm(){
+            background: url(../images/sectiob-five-mob.jpg) no-repeat center center;
+            background-size: cover;
+        }
     }
     &__button{
         margin: 0 auto 39px auto;
+        @include for-md(){
+            margin: 20px auto 0;
+        }
     }
     &__aside{
         position: absolute;
         width: 631px;
         height: 644px;
+        @include for-desk(){
         background: url(../images/five-section-aside.png);
+        }
         top: -352px;
     right: -106px;
         display: flex;
@@ -343,15 +743,34 @@ line-height: 134.5%;
         box-sizing: border-box;
         p{
             max-width: 314px;
+            @include for-md(){
+                max-width: 61%;
+            }
         }
+
+        @include for-md(){
+            position: static;
+            width: 100%;
+            height: auto;
+            background-color: #fff;
+            padding: 22px 0;
+            text-align: center;
+         }
     }
     &__vector{
         position: absolute;
-        width: 685px;
+        width: 800px;
         height: 818px;
-        background: url(../images/vector5.png);
-        right: -107px;
-        bottom: -333px;
+        background: url(../images/vector5.png)  no-repeat;
+        // left: -107px;
+        bottom: -390px;
+        right: -200px;
+        background-position: center right;
+        background-size: contain;
+
+        @include for-md(){
+            display: none;
+        }
     }
 
 }
@@ -366,20 +785,56 @@ line-height: 134.5%;
     padding-top: 63px;
     display: flex;
     justify-content: center;
-
+    @include for-lg(){
+        align-items: center;
+        padding: 0;
+    }
+    @include for-md(){
+        flex-direction: column;
+        min-height: inherit;
+     }
     &__block{
         max-width: 368px;
         margin-left: 46px;
         margin-top: 123px;
+
+        @include for-md(){
+            background: url(../images/section-sixth.jpg) center center no-repeat;
+            background-size: cover;
+            max-width: 100%;
+            margin: 0;
+            padding: 25px 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 247px;
+            text-align: center;
+
+            p{
+                max-width: 61%;
+            }
+        }
+
+        @include for-sm(){
+            background: url(../images/section-sixth-mob.png) no-repeat center center;
+            background-size: cover;
+        }
     }
     &__button{
         margin: 26px auto 42px auto;
+        @include for-md(){
+            margin: 20px auto 0;
+        }
     }
     &__aside{
         position: absolute;
         width: 544px;
         height: 513px;
+        @include for-desk(){
         background: url(../images/six-section-asde.png);
+        }
         top: -248px;
         left: -92px;
         padding-left: 110px;
@@ -387,17 +842,38 @@ line-height: 134.5%;
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @include for-md(){
+            position: static;
+            width: 100%;
+            height: auto;
+            padding: 30px 0;
+            text-align: center;
+            background-color: #fff;
+         }
         p{
             max-width: 278px;
+            @include for-md(){
+                max-width: 61%;
+
+            }
         }
+
+      
     }
     &__vector{
         position: absolute;
-        width: 640px;
+        width: 800px;
         height: 818px;
         background: url(../images/vector6.png);
         left: -107px;
         bottom: -435px;
+        left: -300px;
+        background-position: center right;
+        background-size: contain;
+        @include for-md(){
+            display: none;
+        }
     }
 
 }
@@ -412,8 +888,21 @@ line-height: 134.5%;
     padding-top: 63px;
     display: flex;
     justify-content: center;
-    
 
+    &__dotted-line{
+        top: -435px;
+    height: 520px;
+        margin: 0 auto;
+        left: 50%;
+        margin-left: 7px;
+        margin-top: 30px;
+    }
+    @include for-md(){
+        flex-direction: column;
+        min-height: inherit;
+        background: none;
+        padding-top: 0;
+     }
     &:before{
         content: '';
         position: absolute;
@@ -423,19 +912,43 @@ line-height: 134.5%;
         left: -6px;
         background: url(../images/take-before.png) no-repeat center center;
         background-size: contain;
+        @include for-md(){
+            display: none;
+        }
     }
+  
 
     &__block{
         max-width: 368px;
         margin-left: 40px;
+        @include for-md(){
+            background: url(../images/seven-section.jpg) center center no-repeat;
+            background-size: cover;
+            max-width: 100%;
+            margin: 0;
+            padding: 25px 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: flex-end;
+            min-height: 250px;
+        }
+        @include for-sm(){
+            background: url(../images/seection-seven-mob.jpg) no-repeat center center;
+            background-size: cover;
+        }
     }
     &__button{
         margin-top: 49px;
         margin-right: 20px;
+        @include for-md(){
+            margin: 20px auto 0;;
+        }
+      
     }
     &__aside{
         position: absolute;
-        background: url(../images/seven-section-aside.png) no-repeat center center;
+       
         background-size: contain;
         width: 563px;
         height: 531px;
@@ -446,10 +959,28 @@ line-height: 134.5%;
         box-sizing: border-box;
         align-items: center;
         display: flex;
+        @include for-desk(){
+            background: url(../images/seven-section-aside.png) no-repeat center center;
+        }
         p{
             max-width: 245px;
             font-size: 18.73px;
             line-height: 22.47px;
+            @include for-md(){
+                max-width: 61%;
+                font-size: 12px;
+                line-height: 14px;
+            }
+        }
+        @include for-md(){
+           position: static;
+           width: 100%;
+           height: auto;
+           background-color: #fff;
+           padding: 30px 0;
+           display: flex;
+           justify-content: center;
+           text-align: center;
         }
 
     }
@@ -458,13 +989,32 @@ line-height: 134.5%;
 .take{
     position: relative;
     padding: 92px 0 38px ;
-  
+    &__dotted-line{
+        top: -630px;
+        height: 800px;
+        margin: 0 auto;
+        left: 50%;
+        margin-left: 7px;
+        margin-top: 30px;
+        z-index: 500;
+    }
+    @include for-md(){
+        background: linear-gradient(265.93deg, #22D594 22.7%, #22FDE3 77.82%);
+    }
+    @include for-sm(){
+        padding: 14px 0;
+        z-index: 600;
+    }
     &__row{
         position: relative;
         z-index: 500;
         justify-content: center;
         display: flex;
         align-items: center;
+        @include for-sm(){
+            padding-top: 22px;
+            padding-bottom: 25px;
+        }
     }
     &__content{
         max-width: 570px;
@@ -474,15 +1024,54 @@ line-height: 134.5%;
         line-height: 45.61px;
         font-weight: 400;
         margin: 0;
+        @include for-sm(){
+            font-size: 16px;
+            line-height: 19px;
+            max-width: 145px;
+    margin-left: 7px;
+        }
+    }
+    &__image-container{
+        @include for-sm(){
+            flex-shrink: 0;
+            max-width: 145px;
+            width: 100%;
+            position: relative;
+            
+    margin-left: 22px;
+    margin-top: 26px;
+
+            img{
+                position: absolute;
+                max-width: 100%;
+                top: -83px;
+            }
+        }
     }
     &__desc{
         margin: 0;
         font-size: 29.79px;
         line-height: 35.75px;
         font-weight: 400;
+        @include for-sm(){
+            font-size: 12px;
+            line-height: 14px;
+            max-width: 85%;
+            margin-left: 7px;
+        }
     }
     &__button{
         margin-top: 50px;
+        @include for-md(){
+            background: #fff;
+        }
+        @include for-sm(){
+            margin: 16px 0 0 -45px;
+            font-size: 12px;
+            line-height: 14px;
+            max-width: 136px;
+            position: relative;
+        }
     }
 }
 .footer{
@@ -490,18 +1079,35 @@ line-height: 134.5%;
     z-index: 500;
     padding: 26px 0;
     background-color: #1D1D1B;
+    @include for-sm(){
+        padding: 15px 0;
+     
+    }
+    
     &__row{
         display: flex;
         align-items: center;
         justify-content: center;
+        @include for-sm(){
+            padding: 0 10px;
+            box-sizing: border-box;
+    
+        }
     }
     &__logo{
         margin-right: 17px;
+        @include for-sm(){
+            max-height: 20px;
+        }
     }
     &__copy{
         font-size: 12.486px;
         line-height: 17px;
         color: #CCCCCC;
+        @include for-sm(){
+            font-size: 9px;
+            line-height: 12px;
+        }
     }
     &__list{
         list-style: none;
@@ -525,6 +1131,11 @@ line-height: 134.5%;
             left: 0;
             content: '•';
 
+        }
+    }
+    &__nav{
+        @include for-sm(){
+            display: none;
         }
     }
     

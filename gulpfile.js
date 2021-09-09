@@ -28,9 +28,9 @@ gulp.task('scss', function(){
 gulp.task('css', function(){
   return gulp.src([
     'node_modules/normalize.css/normalize.css',
-    'node_modules/@fancyapps/ui/dist/fancybox.css'
+    'node_modules/@fancyapps/ui/dist/fancybox.css',
     // 'assest/css/swiper.min.css',
-    // 'assest/css/aos.css',
+    'assest/css/aos.css',
   ])
     .pipe(concat('_libs.scss'))
     .pipe(gulp.dest('app/scss'))
@@ -49,10 +49,10 @@ gulp.task('script', function(){
 
 gulp.task('js', function(){
   return gulp.src([
-    'node_modules/@fancyapps/ui/dist/fancybox.umd.js'
+    'node_modules/@fancyapps/ui/dist/fancybox.umd.js',
     // 'assest/js/swiper.js',
     // 'assest/js/jquery.simplemarquee.js',
-    // 'assest/js/aos.js',
+    'assest/js/aos.js',
     // 'assest/js/slick.js',
     // 'assest/js/dotdotdot.js',
     // 'assest/js/jquery.validate.min.js'
