@@ -30,6 +30,7 @@ body{
     }
 }
 .button{
+    position: relative;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -272,7 +273,7 @@ line-height: 24px;
             height: 500px;
             padding: 10px;
         }
-        right: -106px;
+        right: 30px;
         bottom: -340px;
         display: flex;
         align-items: center;
@@ -303,7 +304,7 @@ line-height: 24px;
         height: 840px;
         z-index: 1;
         background: url(../images/vector1.png) center left;
-        right: -262px;
+        right: -102px;
         top: 509px;
         background-size: contain;
         @include for-md(){
@@ -318,6 +319,10 @@ line-height: 24px;
     position: relative;
     display: flex;
     justify-content: center;
+    background-size: cover;
+    margin: 0 auto;
+    max-width: 1440px;
+    width: 100%;
     &-block{
         p{
             position: relative;
@@ -334,9 +339,19 @@ line-height: 24px;
        
     }
 }
+.section-bg{
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
 
+    @include for-md(){
+        display: none;
+    }
+}
 .section-second{
-    background: url(../images/second-section.jpg) no-repeat center center;
+   
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -349,6 +364,14 @@ line-height: 24px;
         height: 330px;
     top: -164px;
     margin-left: 18px;
+    }
+    &__bg{
+        min-height: 819px;
+        background: url(../images/second-section.jpg) no-repeat center center;
+        background-size: cover;
+        width: calc(100% - 200px);
+        left: 0;
+        
     }
     @include for-lg(){
         align-items: center;
@@ -404,10 +427,10 @@ line-height: 24px;
         background: url(../images/second-section_aside.png) center center no-repeat;
         background-size: contain;
         }
-    width: 690px;
+    width: 590px;
     height: 815px;
     position: absolute;
-    left: -122px;
+    left: 50px;
     bottom: top;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -451,7 +474,7 @@ line-height: 134.5%;
         height: 815px;
         z-index: 1;
         background: url(../images/vector2.png) center center;
-        left: -200px;
+        left: -100px;
         top: 444px;
         background-position: center right;
         background-size: contain;
@@ -465,7 +488,7 @@ line-height: 134.5%;
     position: relative;
     margin-top: -5px;
     z-index: 100;
-    background: url(../images/third-section.jpg) no-repeat center center;
+    
     min-height: 829px;
     box-sizing: border-box;
     padding-top: 180px;
@@ -474,6 +497,13 @@ line-height: 134.5%;
         height: 653px;
         margin-left: 19px;
     
+    }
+    &__bg{
+        background: url(../images/third-section.jpg) no-repeat center center;
+        background-size: cover;
+        min-height: 829px;
+        right: 0;
+        width: calc(100% - 200px);
     }
     @include for-lg(){
         align-items: center;
@@ -517,11 +547,12 @@ line-height: 134.5%;
         @include for-desk(){
         background: url(../images/third-section_aside.png);
         background-size: contain;
+        background-repeat: no-repeat;
         }
         height: 604px;
         width: 630px;
         // bottom: -261px;
-        right: -106px;
+        right: 50px;
         top: -343px;
         display: flex;
         align-items: center;
@@ -558,9 +589,9 @@ line-height: 134.5%;
     width: 800px;
     background: url(../images/vector3.png) center center no-repeat;
     position: absolute;
-    right: -107px;
+    right: -7px;
     bottom: -335px;
-    right: -200px;
+    right: -121px;
     background-size: contain;
     background-position: center left;
             @include for-md(){
@@ -578,8 +609,7 @@ line-height: 134.5%;
 .section-four{
     position: relative;
     z-index: 500;
-    background: url(../images/four-section.jpg) center center no-repeat;
-    background-size: cover;
+   
     min-height: 725px;
     box-sizing: border-box;
     padding-top: 180px;
@@ -591,6 +621,13 @@ line-height: 134.5%;
         left: 50%;
         margin-left: 7px;
         margin-top: 30px;
+    }
+    &__bg{
+        background: url(../images/four-section.jpg) center center no-repeat;
+        background-size: cover;
+        min-height: 725px;
+        left: 0;
+        width: calc(100% - 200px);
     }
     @include for-md(){
         background: none;
@@ -642,7 +679,7 @@ line-height: 134.5%;
         @include for-desk(){
         background: url(../images/aside_four.png) no-repeat center center;
         }
-        left: -121px;
+        left: 50px;
     bottom: -241px;
     display: flex;
     align-items: center;
@@ -670,9 +707,11 @@ line-height: 134.5%;
         width: 800px;
         height: 853px;
         background: url(../images/vector4.png);
+        background-size: contain;
+        background-repeat: no-repeat;
 
         top: -486px;
-        left: -107px;
+        left: -7px;
         background-position: center right;
         left: -270px;
         background-size: contain;
@@ -682,13 +721,19 @@ line-height: 134.5%;
     }
 }
 .section-five{
-    background: url(../images/section-five.jpg) center center no-repeat;
-    background-size: cover;
+   
     min-height: 848px;
     box-sizing: border-box;
     padding-top: 63px;
     display: flex;
     justify-content: center;
+    &__bg{
+        background: url(../images/section-five.jpg) center center no-repeat;
+        background-size: cover;
+        min-height: 848px;
+        width: calc(100% - 200px);
+        right: 0;
+    }
     &__dotted-line{
         top: -640px;
         height: 760px;
@@ -748,11 +793,11 @@ line-height: 134.5%;
         height: 644px;
         background-size: contain;
         @include for-desk(){
-        background: url(../images/five-section-aside.png);
+        background: url(../images/five-section-aside.png) no-repeat;
         background-size: contain;
         }
         top: -352px;
-    right: -106px;
+    right: 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -781,7 +826,7 @@ line-height: 134.5%;
         background: url(../images/vector5.png)  no-repeat;
         // left: -107px;
         bottom: -390px;
-        right: -200px;
+        right: -100px;
         background-position: center right;
         background-size: contain;
 
@@ -795,13 +840,20 @@ line-height: 134.5%;
 .section-sixth{
     position: relative;
     z-index: 200;
-    background: url(../images/section-sixth.jpg) center center no-repeat;
-    background-size: cover;
+  
     min-height: 725px;
     box-sizing: border-box;
     padding-top: 63px;
     display: flex;
     justify-content: center;
+
+    &__bg{
+        background: url(../images/section-sixth.jpg) center center no-repeat;
+        background-size: cover;
+        min-height: 725px;
+        width: calc(100% - 200px);
+        left: 0;
+    }
     @include for-lg(){
         align-items: center;
         padding: 0;
@@ -854,7 +906,7 @@ line-height: 134.5%;
         background: url(../images/six-section-asde.png);
         }
         top: -248px;
-        left: -92px;
+        left: 50px;
         padding-left: 110px;
         box-sizing: border-box;
         display: flex;
@@ -886,9 +938,10 @@ line-height: 134.5%;
         background: url(../images/vector6.png);
         left: -107px;
         bottom: -435px;
-        left: -300px;
+        left: -100px;
         background-position: center right;
         background-size: contain;
+        background-repeat: no-repeat;
         @include for-md(){
             display: none;
         }
@@ -899,13 +952,19 @@ line-height: 134.5%;
 .section-seven{
     position: relative;
     z-index: 250;
-    background: url(../images/seven-section.jpg) center center no-repeat;
-    background-size: cover;
     min-height: 738px;
     box-sizing: border-box;
     padding-top: 63px;
     display: flex;
     justify-content: center;
+
+    &__bg{
+        background: url(../images/seven-section.jpg) center center no-repeat;
+        background-size: cover;
+        min-height: 738px;
+        width: calc(100% - 200px);
+        right: 0;
+    }
 
     &__dotted-line{
         top: -425px;
@@ -971,7 +1030,7 @@ line-height: 134.5%;
         width: 563px;
         height: 531px;
         bottom: -207px;
-        right: -83px;
+        right: 50px;
         padding: 21px 0 0 107px;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
@@ -1164,4 +1223,7 @@ line-height: 134.5%;
         }
     }
     
+}
+.fancybox__content{
+    height: 100% !important;
 }
